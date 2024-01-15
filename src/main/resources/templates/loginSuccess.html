@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Login Success</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
+</head>
+<body>
+<h3>
+  <div class="label label-info">
+    Welcome, <span th:text="${name}">user</span>!
+  </div>
+</h3>
+<div class="container">
+  <div>
+    <button onClick="logout()" class="btn btn-primary">Logout</button>
+  </div>
+</div>
+<script>
+  var logout = () => {
+    $.post("/logout", function () {
+      console.log("Logged out");
+      window.location.href = "/oauth_login";
+    });
+
+    return true;
+
+  }
+</script>
+</body>
+</html>
